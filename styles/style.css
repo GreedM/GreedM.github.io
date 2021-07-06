@@ -18,29 +18,19 @@
 ----------------------------------------------------------------------------------------------------
 CSS flexbox source: https://jsfiddle.net/bradtraversy/bu0ecodm/1/
 */
-@media all and (min-width:768px) {
-	.container {
-		display:flex;
-		justify-content:space-around;
-		flex-direction:row;
-		flex-wrap:wrap;
-	}
-	.container-box {
-		flex-basis:25%;
-	}
-}
-@media all and (max-width:767px) {
-	body {
-		margin: 2rem 0;
-	}
-}
 body {
 	background-color:#1F8597;
-	display:flex;
 	flex-direction:column;
 	justify-content:center;
 	text-align:center;
-	min-height:100vh;
+	display:flex;
+	min-height: 100%;  /* Fallback for browsers which do not support vh unit */
+	min-height: 100vh;
+}
+@media all and (min-width:768px){
+	body{
+		overflow:hidden;
+	}
 }
 h1,h2,h3,h4,h5,h6 {
 	font-family:'Noto Sans',sans-serif;
@@ -50,37 +40,28 @@ h1,h2,h3,h4,h5,h6 {
 h1 {
 	font-size:2rem;
 }
-.navigation {
-	max-width:200px;
+.nav-justified {
+	max-width:280px;
 	margin:0 auto;
 	display:flex;
 	justify-content: center;
 	padding-bottom:2rem;
 	gap:10px;
 }
-.navigation li {
-	list-style:none;
-	display:inline-block;
+.nav-link {
+	border: 3px solid #F4A896!important;
+	color:#F4A896;
 }
-.navigation li a {
-	padding:10px 15px;
-	display:block;
-	border: 3px solid #F4A896;
+.nav-link.active,.nav-link:hover {
+	background:#F4A896!important;
+	color:#1F8597!important;
 }
-.navigation li a:hover {
-	padding:10px 15px;
-	display:block;
-	background:#F4A896;
-	color:#1F8597;
-}
-.rounded {
-	border-radius:50%;
-	-webkit-border-radius:50%;
-	-moz-border-radius:50%;
-	-o-border-radius:50%;
+.nav-link:hover{
+	transition: 0.3s;
+	transition-timing-function: ease;
 }
 #contact p {
-	margin-top: -20px;
+	margin-top: -10px;
 }
 #contact a {
 	line-height:2rem;
